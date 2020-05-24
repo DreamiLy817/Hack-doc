@@ -1,7 +1,7 @@
 Get the profile:
 
 ```sh
-$ **./vol.py -f /data/downloads/ch2.dmp imageinfo**
+$ ./vol.py -f /data/downloads/ch2.dmp imageinfo
 Volatility Foundation Volatility Framework 2.4
 INFO    : volatility.plugins.imageinfo: Determining profile based on KDBG search...
           Suggested Profile(s) : Win7SP0x86, Win7SP1x86
@@ -21,7 +21,7 @@ INFO    : volatility.plugins.imageinfo: Determining profile based on KDBG search
 Then, we dump the hives to get the offset of the ones where we will find the hostname:
 
 ```sh
-$ **./vol.py -f /data/downloads/ch2.dmp --profile=Win7SP0x86 hivelist**
+$ ./vol.py -f /data/downloads/ch2.dmp --profile=Win7SP0x86 hivelist
 Volatility Foundation Volatility Framework 2.4
 Virtual    Physical   Name
 ---------- ---------- ----
@@ -41,7 +41,7 @@ Virtual    Physical   Name
 Now, let's dump the registry key where the hostname will be revealed:
 
 ```sh
-$ **./vol.py -f /data/downloads/ch2.dmp --profile=Win7SP0x86 printkey -o 0x8b21c008 -K 'ControlSet001\Control\ComputerName\ComputerName'**
+$ ./vol.py -f /data/downloads/ch2.dmp --profile=Win7SP0x86 printkey -o 0x8b21c008 -K 'ControlSet001\Control\ComputerName\ComputerName'
 Volatility Foundation Volatility Framework 2.4
 Legend: (S) = Stable   (V) = Volatile
 
